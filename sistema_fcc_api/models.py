@@ -22,3 +22,20 @@ class Administradores(models.Model):
 
     def __str__(self):
         return "Perfil del admin "+self.first_name+" "+self.last_name
+    
+class Alumnos(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False, default=None)
+    matricula = models.CharField(max_length=255,null=True, blank=True)
+    curp = models.CharField(max_length=255,null=True, blank=True)
+    rfc = models.CharField(max_length=255,null=True, blank=True)
+    #fecha_nacimiento = models.CharField(max_length=255,null=True, blank=True)
+    fecha_nacimiento = models.DateTimeField(auto_now_add=False, null=True, blank=True)
+    edad = models.IntegerField(null=True, blank=True)
+    telefono = models.CharField(max_length=255, null=True, blank=True)
+    ocupacion = models.CharField(max_length=255,null=True, blank=True)
+    creation = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    update = models.DateTimeField(null=True, blank=True)
+
+    def __str__(self):
+        return "Perfil del usuario "+self.first_name+" "+self.last_name
