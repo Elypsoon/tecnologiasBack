@@ -94,7 +94,7 @@ class MaestroView(generics.CreateAPIView):
                                             rfc= request.data["rfc"].upper(),
                                             cubiculo= request.data["cubiculo"],
                                             area= request.data["area"],
-                                            materias_json= request.data["materias_json"],)
+                                            materias_json= json.dumps(request.data["materias_json"]))
             maestro.save()
 
             return Response({"maestro_created_id": maestro.id }, 201)
