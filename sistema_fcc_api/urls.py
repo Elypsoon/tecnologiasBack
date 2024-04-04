@@ -34,6 +34,8 @@ urlpatterns = [
         path('lista-alumnos/', alumnos.AlumnoAll.as_view()),
     #Create Maestro
         path('maestro/', maestros.MaestroView.as_view()),
+    #Alumno Data
+        path('lista-maestros/', maestros.MaestroAll.as_view()),
     #Login
         path('token/', auth.CustomAuthToken.as_view()),
     #Logout

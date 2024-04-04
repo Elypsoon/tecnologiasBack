@@ -35,14 +35,14 @@ class MaestroAll(generics.CreateAPIView):
     permission_classes = (permissions.IsAuthenticated,)
     def get(self, request, *args, **kwargs):
         maestros = Maestros.objects.filter(user__is_active = 1).order_by("id")
-        lista = MaestroSerializer(maestros, many=True).data
+        maestros = MaestroSerializer(maestros, many=True).data
         
         if not maestros:
             return Response({},400)
         for maestro in maestros:
             maestro["materias_json"] = json.loads(maestro["materias_json"])
         
-        return Response(lista, 200)
+        return Response(maestros, 200)
 
 class MaestroView(generics.CreateAPIView):
     #Obtener usuario por ID
