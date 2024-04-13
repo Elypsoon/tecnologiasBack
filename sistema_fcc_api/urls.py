@@ -28,6 +28,8 @@ urlpatterns = [
         path('admin/', users.AdminView.as_view()),
     #Admin Data
         path('lista-admins/', users.AdminAll.as_view()),
+    #Edit Admin
+        path('admins-edit/', users.AdminsViewEdit.as_view()),
     #Create Alumno
         path('alumno/', alumnos.AlumnoView.as_view()),
     #Alumno Data
@@ -36,6 +38,8 @@ urlpatterns = [
         path('maestro/', maestros.MaestroView.as_view()),
     #Alumno Data
         path('lista-maestros/', maestros.MaestroAll.as_view()),
+    #Edit Maestro
+        path('maestros-edit/', maestros.MaestrosViewEdit.as_view()),
     #Login
         path('token/', auth.CustomAuthToken.as_view()),
     #Logout
