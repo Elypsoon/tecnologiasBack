@@ -34,6 +34,8 @@ urlpatterns = [
         path('alumno/', alumnos.AlumnoView.as_view()),
     #Alumno Data
         path('lista-alumnos/', alumnos.AlumnoAll.as_view()),
+     #Edit Alumno
+        path('alumnos-edit/', alumnos.AlumnoViewEdit.as_view()),
     #Create Maestro
         path('maestro/', maestros.MaestroView.as_view()),
     #Alumno Data
