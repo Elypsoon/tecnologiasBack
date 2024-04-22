@@ -30,3 +30,14 @@ class MaestroSerializer(serializers.ModelSerializer):
     class Meta:
         model = Maestros
         fields = '__all__'
+        
+class MatSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(read_only=True)
+    class Meta:
+        model = Materias
+        fields = ('id','nrc')
+        
+class MateriasSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Materias
+        fields = '__all__'
