@@ -45,7 +45,7 @@ class MateriasAll(generics.CreateAPIView):
         return Response(materias, 200)
 
 class MateriasView(generics.CreateAPIView):
-    #Obtener usuario por ID
+    #Obtener materia por ID
     # permission_classes = (permissions.IsAuthenticated,)
     def get(self, request, *args, **kwargs):
         materia = get_object_or_404(Materias, id = request.GET.get("id"))
@@ -54,7 +54,7 @@ class MateriasView(generics.CreateAPIView):
 
         return Response(materia, 200)
     
-    #Registrar nuevo usuario
+    #Registrar nueva materia
     @transaction.atomic
     def post(self, request, *args, **kwargs):
         materia = MatSerializer(data=request.data)
@@ -74,7 +74,6 @@ class MateriasView(generics.CreateAPIView):
 
         return Response(materia.errors, status=status.HTTP_400_BAD_REQUEST)
 
-#Se tiene que modificar la parte de edicion y eliminar
 class MateriasViewEdit(generics.CreateAPIView):
     permission_classes = (permissions.IsAuthenticated,)
     def put(self, request, *args, **kwargs):
